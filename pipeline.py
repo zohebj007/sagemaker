@@ -8,7 +8,6 @@ import boto3
 from sagemaker.sklearn.processing import SKLearnProcessor
 from sagemaker.sklearn.estimator import SKLearn
 from sagemaker.sklearn.processing import SKLearnProcessor
-from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sagemaker.sklearn import SKLearn
 from sagemaker.inputs import TrainingInput
 from sagemaker.workflow.steps import TrainingStep
