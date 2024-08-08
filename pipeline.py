@@ -16,6 +16,7 @@ from sagemaker.sklearn.model import SKLearnModel
 
 bucket='zohebmlops'
 prefix = 'mlops'
+sagemaker_session = sagemaker.Session(boto3.Session(region_name='ap-south-1'))  # Specify your region here
 input_source = sagemaker.Session().upload_data('./iris.csv', bucket=bucket, key_prefix=f'{prefix}')
 train_path = f"s3://{bucket}/{prefix}/train"
 test_path = f"s3://{bucket}/{prefix}/test"
