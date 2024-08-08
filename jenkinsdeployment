@@ -1,0 +1,43 @@
+pipeline {
+    agent any
+    
+     environment {
+        AWS_DEFAULT_REGION = 'ap-south-1'  // Set your AWS region
+        AWS_REGION = 'ap-south-1'          // Set your AWS region
+    }
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/zohebj007/sagemaker.git'
+            }
+        }
+
+        stage('Set Up Environment') {
+            steps {
+                script {
+                    // Install dependencies if needed
+                    sh """
+                    ls -l && aws --version && pip install sagemaker 
+                    """
+                }
+            }
+        }
+
+        stage('Run SageMaker Pipeline Script') {
+            steps {
+                script {
+                    // Set the AWS region
+                    def awsRegion = 'ap-south-1'  // Replace with your region
+
+                    // Execute the pipeline.py script to create and run the SageMaker pipeline
+                    withCredentials([aws(credentialsId: 'sagemkaer-zoheb-mlops', region: awsRegion)]) {
+                        sh """
+                        python3 pipeline.py
+                        """
+                    }
+                }
+            }
+        }
+    }
+}
