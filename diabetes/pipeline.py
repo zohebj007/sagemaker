@@ -32,7 +32,7 @@ from sagemaker.workflow.model_step import ModelStep
 ###################  parameters #####################
 bucket='main-sagemaker-zohebml'
 prefix = 'mlops'
-input_source = sagemaker.Session().upload_data('./diabetes.csv', bucket=bucket, key_prefix=f'{prefix}')
+input_source = f"s3://{bucket}/{prefix}/diabetes.csv"
 train_path = f"s3://{bucket}/{prefix}/train"
 test_path = f"s3://{bucket}/{prefix}/test"
 val_path = f"s3://{bucket}/{prefix}/val"
