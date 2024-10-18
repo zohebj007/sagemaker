@@ -209,5 +209,5 @@ pipeline = Pipeline(
 )
 
 # Create and start the pipeline using SageMaker client
-#pipeline.create(role_arn=role)  # Replace with your actual role ARN
+pipeline.create(role_arn=role)  # Replace with your actual role ARN
 pipeline.start()
