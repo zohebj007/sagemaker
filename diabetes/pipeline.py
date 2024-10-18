@@ -44,7 +44,7 @@ evaluation_output_uri = f"s3://{bucket}/output/evaluation"
 
 ################# important for pipeline #####################
 sagemaker_session = sagemaker.Session()
-role = 'arn:aws:iam::590183717898:role/service-role/AmazonSageMaker-ExecutionRole-20240716T105741' #sagemaker.get_execution_role()
+role = 'arn:aws:iam::590183717898:role/service-role/AmazonSageMaker-ExecutionRole-20240716T105741'  #sagemaker.get_execution_role()
 pipeline_session = PipelineSession()
 ########### preprocessing of data ##################
 
